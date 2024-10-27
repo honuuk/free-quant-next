@@ -5,25 +5,25 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 interface Props {}
 
-const TYPES = ['value', 'growth', 'acceleration']
-const typeLabelMap: Record<string, string> = {
-  value: '가치',
+const FACTORS = ['quality', 'growth', 'acceleration']
+const factorLabelMap: Record<string, string> = {
+  quality: '가치',
   growth: '성장',
   acceleration: '가속',
 }
 
 const FactorTabs: React.FC<Props> = () => {
-  const [type, setType] = useState('quality')
+  const [factor, setFactor] = useState('quality')
   return (
     <Tabs
-      value={type}
+      value={factor}
       className="space-y-4 w-full sm:w-fit"
-      onValueChange={(value: string) => setType(value)}
+      onValueChange={(value: string) => setFactor(value)}
     >
       <TabsList className="w-full sm:w-fit">
-        {TYPES.map((type) => (
-          <TabsTrigger className="flex-1 sm:w-20" key={type} value={type}>
-            {typeLabelMap[type]}
+        {FACTORS.map((value) => (
+          <TabsTrigger className="flex-1 sm:w-20" key={value} value={value}>
+            {factorLabelMap[value]}
           </TabsTrigger>
         ))}
       </TabsList>
